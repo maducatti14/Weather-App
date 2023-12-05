@@ -14,9 +14,9 @@ let currentMinute = currentDate.getMinutes();
 let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
 let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 let description = document.querySelector("#description");
-let time = document.querySelector("#time");
+let timeElement = document.querySelector("#time");
 
-time.innerHTML = "Today";
+timeElement.innerHTML = "Today";
 
 // Search for city
 let city;
