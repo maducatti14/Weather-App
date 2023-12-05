@@ -53,17 +53,7 @@ form.addEventListener("submit", (event) => {
 // Search for current date and time
 
 
-function refreshWeather(response) {
 
-  let timeElement = document.querySelector("#time");
-  let date = new Date(response.data.time * 1000);
-  
-  
-  timeElement.innerHTML = formatDate(date);
- 
-
-axios.get(`${apiUrl}`).then(refreshWeather);
-};
 
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -133,6 +123,13 @@ currentLocationButton.addEventListener("click", (event) => {
 
       let currentWind = document.querySelector("#current-wind");
       currentWind.innerHTML = `Wind: ${currentLocationWind} km/h`;
+      
+      let timeElement = document.querySelector("#time");
+      let date = new Date(response.data.time * 1000);
+      
+      
+      timeElement.innerHTML = formatDate(date);
+    
     }
 
     axios.get(`${apiUrl}`).then(showTemperature);
