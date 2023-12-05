@@ -15,15 +15,7 @@ let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
 let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 
 
-function refreshWeather(response) {
 
-let timeElement = document.querySelector("#time");
-let date = new Date(response.data.time * 1000);
-
-
-timeElement.innerHTML = formatDate(date);
-
-}
 // Search for city
 let city;
 let form = document.querySelector("#search-form");
@@ -91,7 +83,7 @@ currentLocationButton.addEventListener("click", (event) => {
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=${unit}`;
 
-    function showTemperature(response) {
+    function refreshWeather(response) {
       let currentLocationTemperature = Math.round(response.data.main.temp);
       let currentLocationTemperatureFahrenheit = Math.round(
         currentLocationTemperature * 1.8 + 32
