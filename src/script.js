@@ -15,7 +15,6 @@ let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
 let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 
 
-
 // Search for city
 let city;
 let form = document.querySelector("#search-form");
@@ -66,6 +65,23 @@ form.addEventListener("submit", (event) => {
   axios.get(`${apiUrl}`).then(showTemperature);
 });
 
+// Search for current date and time
+
+
+function refreshWeather(response) {
+
+  let timeElement = document.querySelector("#time");
+  let date = new Date(response.data.time * 1000);
+  
+  
+  timeElement.innerHTML = formatDate(date);
+  
+
+
+axios.get(`${apiUrl}`).then(refreshWeather);
+};
+
+
 // Seach for current location
 
 let currentLatitude;
@@ -83,7 +99,7 @@ currentLocationButton.addEventListener("click", (event) => {
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=${unit}`;
 
-    function refreshWeather(response) {
+    function showTemperature(response) {
       let currentLocationTemperature = Math.round(response.data.main.temp);
       let currentLocationTemperatureFahrenheit = Math.round(
         currentLocationTemperature * 1.8 + 32
