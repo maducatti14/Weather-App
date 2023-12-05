@@ -74,8 +74,8 @@ function refreshWeather(response) {
   let date = new Date(response.data.time * 1000);
   
   
-  timeElement.innerHTML = formatDate(date);
-  
+  timeElement.innerHTML = `${date.getHours()}:${date.getMinutes()}`;
+ 
 
 
 axios.get(`${apiUrl}`).then(refreshWeather);
