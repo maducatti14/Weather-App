@@ -61,6 +61,7 @@ form.addEventListener("submit", (event) => {
 
     let currentWind = document.querySelector("#current-wind");
     currentWind.innerHTML = `Wind: ${locatedCityWind} km/h`;
+  }
 
   axios.get(`${apiUrl}`).then(showTemperature);
 });
