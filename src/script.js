@@ -50,32 +50,6 @@ form.addEventListener("submit", (event) => {
   axios.get(`${apiUrl}`).then(showTemperature);
 });
 
-// Search for current date and time
-
-
-
-
-function formatDate(date) {
-  let minutes = date.getMinutes();
-  let hours = date.getHours();
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[date.getDay()];
-
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  return `${day} ${hours}:${minutes}`;
-}
-
 
 // Seach for current location
 
@@ -137,6 +111,27 @@ currentLocationButton.addEventListener("click", (event) => {
 
   navigator.geolocation.getCurrentPosition(currentCoordinates);
 });
+
+function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${day} ${hours}:${minutes}`;
+}
 
 // Loading page
 window.addEventListener("load", () => {
