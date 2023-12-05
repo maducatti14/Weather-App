@@ -113,6 +113,8 @@ currentLocationButton.addEventListener("click", (event) => {
 });
 
 function formatDate(date) {
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
   let days = [
     "Sunday",
     "Monday",
@@ -123,16 +125,12 @@ function formatDate(date) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  let currentHour = currentDate.getHours();
-  let currentMinute = currentDate.getMinutes();
-  let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
   return `${day} ${hours}:${minutes}`;
-  
 }
 
 // Loading page
