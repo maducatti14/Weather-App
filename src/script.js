@@ -1,19 +1,3 @@
-let currentDate = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-let currentDay = days[currentDate.getDay()];
-let currentHour = currentDate.getHours();
-let currentMinute = currentDate.getMinutes();
-let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
-let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
-
 
 // Search for city
 let city;
