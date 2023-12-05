@@ -15,6 +15,11 @@ let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
 let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 let description = document.querySelector("#description");
 
+let timeElement = document.querySelector("#time");
+
+let date = new Date(response.data.time * 1000);
+
+timeElement.innerHTML = formatDate(date);
 
 // Search for city
 let city;
@@ -60,12 +65,6 @@ form.addEventListener("submit", (event) => {
 
     let currentWind = document.querySelector("#current-wind");
     currentWind.innerHTML = `Wind: ${locatedCityWind} km/h`;
-
-    let timeElement = document.querySelector("#time");
-
-    let date = new Date(response.data.time * 1000);
-
-    timeElement.innerHTML = formatDate(date);
 
   }
 
