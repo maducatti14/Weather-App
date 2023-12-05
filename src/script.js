@@ -1,4 +1,5 @@
 
+
 // Search for city
 let city;
 let form = document.querySelector("#search-form");
