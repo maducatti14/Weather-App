@@ -79,7 +79,6 @@ currentLocationButton.addEventListener("click", (event) => {
       let currentLocationWeatherDescription =
         response.data.weather[0].description;
       let date = new Date(response.data.timezone);
-      let time = response.data.time;
 
       console.log(response.data);
 
@@ -114,8 +113,6 @@ currentLocationButton.addEventListener("click", (event) => {
 });
 
 function formatDate(date) {
-  let minutes = date.getMinutes();
-  let hours = date.getHours();
   let days = [
     "Sunday",
     "Monday",
@@ -129,10 +126,7 @@ function formatDate(date) {
   let currentHour = currentDate.getHours();
   let currentMinute = currentDate.getMinutes();
   let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
-  let time = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
-
-    document.querySelector("#time").textContent = time;
-
+  let date = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
