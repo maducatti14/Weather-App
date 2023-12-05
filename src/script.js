@@ -126,12 +126,20 @@ function formatDate(date) {
     "Saturday",
   ];
   let day = days[date.getDay()];
+  let currentHour = currentDate.getHours();
+  let currentMinute = currentDate.getMinutes();
+  let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
+  let time = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
+
+    document.querySelector("#time").textContent = time;
+
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
   return `${day} ${hours}:${minutes}`;
+  
 }
 
 // Loading page
