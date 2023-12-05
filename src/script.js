@@ -14,10 +14,10 @@ form.addEventListener("submit", (event) => {
     cityName.textContent = city;
   }
 
-  let apiKey = "3b3cc3aec5c8e39b60f74de72c054107";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "d28e97t4320ae83c2fo1a90432af5fcb";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query={query}&key={key}`;
 
-  function showTemperature(response) {
+  function refreshWeather(response) {
     let locatedCityTemperature = Math.round(response.data.main.temp);
     let locatedCityTemperatureFahrenheit = Math.round(
       locatedCityTemperature * 1.8 + 32
@@ -47,7 +47,7 @@ form.addEventListener("submit", (event) => {
 
   }
 
-  axios.get(`${apiUrl}`).then(showTemperature);
+  axios.get(`${apiUrl}`).then(refreshWeather);
 });
 
 
@@ -68,7 +68,7 @@ currentLocationButton.addEventListener("click", (event) => {
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=${unit}`;
 
-    function showTemperature(response) {
+    function refreshWeather(response) {
       let currentLocationTemperature = Math.round(response.data.main.temp);
       let currentLocationTemperatureFahrenheit = Math.round(
         currentLocationTemperature * 1.8 + 32
@@ -105,7 +105,7 @@ currentLocationButton.addEventListener("click", (event) => {
     
     }
 
-    axios.get(`${apiUrl}`).then(showTemperature);
+    axios.get(`${apiUrl}`).then(refreshWeather);
   }
 
   navigator.geolocation.getCurrentPosition(currentCoordinates);
