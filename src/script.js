@@ -14,8 +14,8 @@ form.addEventListener("submit", (event) => {
     cityName.textContent = city;
   }
 
-  let apiKey = "d28e97t4320ae83c2fo1a90432af5fcb";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query={query}&key={key}`;
+  let apiKey = "3b3cc3aec5c8e39b60f74de72c054107";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   function refreshWeather(response) {
     let locatedCityTemperature = Math.round(response.data.main.temp);
