@@ -79,6 +79,7 @@ currentLocationButton.addEventListener("click", (event) => {
       let currentLocationWeatherDescription =
         response.data.weather[0].description;
       let date = new Date(response.data.timezone);
+      let time = response.data.time;
 
       console.log(response.data);
 
