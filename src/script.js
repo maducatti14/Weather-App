@@ -17,12 +17,11 @@ let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 
 function refreshWeather(response) {
 
-let description = document.querySelector("#description");
 let timeElement = document.querySelector("#time");
+let date = new Date(response.data.time * 1000);
 
-console.log(response.data);
 
-timeElement.innerHTML = "Today";
+timeElement.innerHTML = formatDate(date);
 
 }
 // Search for city
