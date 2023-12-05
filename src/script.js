@@ -15,7 +15,6 @@ let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
 let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 let description = document.querySelector("#description");
 
-description.innerHTML = response.data.condition.description;
 document.querySelector("#current-date-time").textContent = correctTime;
 
 // Search for city
