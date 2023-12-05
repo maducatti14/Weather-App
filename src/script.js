@@ -126,7 +126,6 @@ function formatDate(date) {
   let currentHour = currentDate.getHours();
   let currentMinute = currentDate.getMinutes();
   let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
-  let date = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
