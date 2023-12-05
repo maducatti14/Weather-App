@@ -78,6 +78,8 @@ currentLocationButton.addEventListener("click", (event) => {
       let currentLocationWind = response.data.wind.speed;
       let currentLocationWeatherDescription =
         response.data.weather[0].description;
+      let date = new Date(response.data.time * 1000);
+
       console.log(response.data);
 
       let currentDescription = document.querySelector(".weatherDescription");
@@ -98,10 +100,7 @@ currentLocationButton.addEventListener("click", (event) => {
       let currentWind = document.querySelector("#current-wind");
       currentWind.innerHTML = `Wind: ${currentLocationWind} km/h`;
       
-      let timeElement = document.querySelector("#time");
-      let date = new Date(response.data.time * 1000);
-      
-      
+      let timeElement = document.querySelector("#time");    
       timeElement.innerHTML = formatDate(date);
     
     }
