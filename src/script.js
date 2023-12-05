@@ -16,6 +16,8 @@ let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 let description = document.querySelector("#description");
 let timeElement = document.querySelector("#time");
 
+console.log(response.data);
+
 timeElement.innerHTML = "Today";
 
 // Search for city
