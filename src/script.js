@@ -17,7 +17,7 @@ form.addEventListener("submit", (event) => {
   let apiKey = "3b3cc3aec5c8e39b60f74de72c054107";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-  function refreshWeather(response) {
+  function showTemperature(response) {
     let locatedCityTemperature = Math.round(response.data.main.temp);
     let locatedCityTemperatureFahrenheit = Math.round(
       locatedCityTemperature * 1.8 + 32
@@ -47,7 +47,7 @@ form.addEventListener("submit", (event) => {
 
   }
 
-  axios.get(`${apiUrl}`).then(refreshWeather);
+  axios.get(`${apiUrl}`).then(showTemperature);
 });
 
 
@@ -68,7 +68,7 @@ currentLocationButton.addEventListener("click", (event) => {
     let unit = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=${unit}`;
 
-    function refreshWeather(response) {
+    function showTemperature(response) {
       let currentLocationTemperature = Math.round(response.data.main.temp);
       let currentLocationTemperatureFahrenheit = Math.round(
         currentLocationTemperature * 1.8 + 32
@@ -100,12 +100,13 @@ currentLocationButton.addEventListener("click", (event) => {
       let currentWind = document.querySelector("#current-wind");
       currentWind.innerHTML = `Wind: ${currentLocationWind} km/h`;
       
-      let timeElement = document.querySelector("#time");    
+      let timeElement = document.querySelector("#time");
+    
       timeElement.innerHTML = formatDate(date);
     
     }
 
-    axios.get(`${apiUrl}`).then(refreshWeather);
+    axios.get(`${apiUrl}`).then(showTemperature);
   }
 
   navigator.geolocation.getCurrentPosition(currentCoordinates);
