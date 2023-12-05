@@ -16,6 +16,8 @@ let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
 
 document.querySelector("#current-date-time").textContent = correctTime;
 
+console.log(response.data);
+
 // Search for city
 let city;
 let form = document.querySelector("#search-form");
