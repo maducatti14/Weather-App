@@ -180,5 +180,5 @@ currentLocationButton.addEventListener('click', (event) => {
   navigator.geolocation.getCurrentPosition(currentCoordinates)
 })
 
-// using Braga as a default city
-search('Braga')
+// using Porto as a default city
+search('Porto')
