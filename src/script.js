@@ -64,7 +64,7 @@ form.addEventListener("submit", (event) => {
     let date = new Date(response.data.time * 1000);
 
     let timeElement = document.querySelector("#time");
-    timeElement.innerHTML = date.getHours();
+    timeElement.innerHTML = `${date.getHours()}:${date.getMinutes()}`;
 
   }
 
