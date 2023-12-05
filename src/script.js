@@ -13,6 +13,10 @@ let currentHour = currentDate.getHours();
 let currentMinute = currentDate.getMinutes();
 let correctMinute = (currentMinute < 10 ? "0" : "") + currentMinute;
 let correctTime = `${currentDay}, ${currentHour}:${correctMinute} (local time)`;
+
+
+function refreshWeather(response) {
+
 let description = document.querySelector("#description");
 let timeElement = document.querySelector("#time");
 
@@ -20,6 +24,7 @@ console.log(response.data);
 
 timeElement.innerHTML = "Today";
 
+}
 // Search for city
 let city;
 let form = document.querySelector("#search-form");
