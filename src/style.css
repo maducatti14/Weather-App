@@ -95,4 +95,9 @@ style.css hr {
     margin-top: 10px;
     text-align: center;
   }
+  footer {
+    font-size: small;
+    text-align: right;
+
+  }
   
